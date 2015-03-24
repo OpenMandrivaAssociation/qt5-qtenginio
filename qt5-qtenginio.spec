@@ -1,25 +1,26 @@
-%define api 5
+%define api %(echo %{version} |cut -d. -f1)
 %define major 1
-
-%define qtminor 4
-%define qtsubminor 1
-
-%define qtversion %{api}.%{qtminor}.%{qtsubminor}
+%define beta alpha
 
 %define enginio %mklibname enginio 1
 %define enginiod %mklibname enginio -d
 
-%define qttarballdir qtenginio-opensource-src-%{qtversion}
+%define qttarballdir qtenginio-opensource-src-%{version}%{?beta:-%{beta}}
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtenginio
-Version:	%{qtversion}
+Version:	5.5.0
+%if 0%{?beta:1}
+Release:	0.%{beta}.1
+Source0:	http://download.qt.io/development_releases/qt/%(echo %{version} |cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
+%else
 Release:	1
+Source0:	http://download.qt.io/official_releases/qt/%(echo %{version} |cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+%endif
 Summary:	Qt GUI toolkit
 Group:		Development/KDE and Qt
 License:	LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
 URL:		http://www.qt-project.org
-Source0:	http://download.qt-project.org/official_releases/qt/%{api}.%{qtminor}/%{version}/submodules/%{qttarballdir}.tar.xz
 BuildRequires:	qt5-qtbase-devel >= %version
 BuildRequires:	pkgconfig(Qt5Quick) >= %version
 BuildRequires:	pkgconfig(Qt5Core) >= %version
