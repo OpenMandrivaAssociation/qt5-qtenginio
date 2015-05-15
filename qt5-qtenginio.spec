@@ -1,6 +1,6 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major 1
-%define beta alpha
+%define beta beta
 
 %define enginio %mklibname enginio 1
 %define enginiod %mklibname enginio -d
