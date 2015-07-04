@@ -1,26 +1,27 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major 1
-%define beta rc
+%define beta %nil
 
 %define enginio %mklibname enginio 1
 %define enginiod %mklibname enginio -d
 
-%define qttarballdir qtenginio-opensource-src-%{version}%{?beta:-%{beta}}
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtenginio
 Version:	5.5.0
-%if 0%{?beta:1}
-$1.%{beta}.1
-Source0:	http://download.qt.io/development_releases/qt/%(echo %{version} |cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
+%if "%{beta}" != ""
+Release:	1.%{beta}.1
+%define qttarballdir qtenginio-opensource-src-%{version}-%{beta}
+Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
-$1
-Source0:	http://download.qt.io/official_releases/qt/%(echo %{version} |cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+Release:	1
+%define qttarballdir qtenginio-opensource-src-%{version}
+Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 Summary:	Qt GUI toolkit
 Group:		Development/KDE and Qt
 License:	LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
-URL:		http://www.qt-project.org
+URL:		http://www.qt.io
 BuildRequires:	qt5-qtbase-devel >= %version
 BuildRequires:	pkgconfig(Qt5Quick) >= %version
 BuildRequires:	pkgconfig(Qt5Core) >= %version
