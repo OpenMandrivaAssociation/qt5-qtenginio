@@ -1,4 +1,4 @@
-%define api %(echo %{version} |cut -d. -f1)
+%define api 5
 %define major 1
 %define beta %nil
 
@@ -8,7 +8,8 @@
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtenginio
-Version:	5.5.1
+Version:	1.6.0
+Epoch:		1
 %if "%{beta}" != ""
 Release:	1.%{beta}.1
 %define qttarballdir qtenginio-opensource-src-%{version}-%{beta}
