@@ -26,7 +26,7 @@ URL:		http://www.qt.io
 BuildRequires:	qmake5
 BuildRequires:	pkgconfig(Qt5Quick) >= %{version}
 BuildRequires:	pkgconfig(Qt5Core) >= %{version}
-BuildRequires:	pkgconfig(QtWidgets) >= %{version}
+BuildRequires:	pkgconfig(Qt5Widgets) >= %{version}
 
 %description
 Client library for accessing Enginio service from Qt and QML code.
