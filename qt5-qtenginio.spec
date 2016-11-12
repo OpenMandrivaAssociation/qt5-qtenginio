@@ -8,16 +8,16 @@
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtenginio
-Version:	1.6.1
+Version:	1.6.2
 Epoch:		1
 %if "%{beta}" != ""
-Release:	1.%{beta}.1
+Release:	0.%{beta}.1
 %define qttarballdir qtenginio-opensource-src-%{version}-%{beta}
-Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
+Source0:	http://download.qt.io/development_releases/qt/5.8/5.8.0-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 Release:	1
 %define qttarballdir qtenginio-opensource-src-%{version}
-Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+Source0:	http://download.qt.io/development_releases/qt/5.8/5.8.0-beta/submodules/%{qttarballdir}.tar.xz
 %endif
 Summary:	Qt GUI toolkit
 Group:		Development/KDE and Qt
