@@ -15,7 +15,7 @@ Release:	0.%{beta}.1
 %define qttarballdir qtenginio-opensource-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/5.8/5.8.0-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
-Release:	1
+Release:	2
 %define qttarballdir qtenginio-opensource-src-%{version}
 Source0:	http://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/%{qttarballdir}.tar.xz
 %endif
