@@ -69,7 +69,7 @@ Devel files needed to build apps based on QtEnginio.
 
 %prep
 %setup -q -n %qttarballdir
-%apply_patches
+%autopatch -p1
 
 %build
 %qmake_qt5
