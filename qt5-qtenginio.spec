@@ -22,7 +22,7 @@ Source0:	http://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/%{qttar
 Summary:	Qt GUI toolkit
 Group:		Development/KDE and Qt
 License:	LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
-URL:		http://www.qt.io
+URL:		https://www.qt.io
 BuildRequires:	qmake5
 BuildRequires:	pkgconfig(Qt5Quick) >= %{version}
 BuildRequires:	pkgconfig(Qt5Core) >= %{version}
